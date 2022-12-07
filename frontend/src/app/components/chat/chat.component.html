@@ -1,0 +1,14 @@
+<div class="rounded pl-md-5 pr-md-5 pb-0 rounded" style="height: 100%">
+    <div class="chatbox d-flex flex-column" style="background: rgba(255, 255, 255, 0.9); height: 100%;">
+        <div class="chatbox-info ">
+            <h2>Chat met {{otherUserName}}</h2>
+        </div>
+        <div class="chat-message-box" style="height: 100%">
+            <app-chat-message *ngFor="let message of msg" [id]="this.id" [chatMessage]="message"></app-chat-message>
+        </div>
+        <div class="input-group ">
+            <input class="form-control" placeholder="Typ een bericht..." [(ngModel)]="currentMessage.content">
+            <button class="btn btn-primary" (click)="sendMessage()">Versturen</button>
+        </div>
+    </div>
+</div>

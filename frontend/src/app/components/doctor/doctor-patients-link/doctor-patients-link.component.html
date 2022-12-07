@@ -1,0 +1,53 @@
+<div class="container-fluid p-3 mt-5 rounded" style="background: rgba(255, 255, 255, 0.9)">
+    <h1 class="text-center">Patiënten zonder Huisarts</h1>
+    <br>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Patiënt Nummer</th>
+            <th scope="col">Naam</th>
+            <th scope="col">Geboortedatum</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Telefoonnummer</th>
+            <th scope="col">Patiënt Linken</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let patientFile of shownPatientFiles">
+            <td>{{ patientFile.id }}</td>
+            <td>{{ patientFile.user.firstname.concat(' ', patientFile.user.lastname) }}</td>
+            <td>{{ patientFile.birthdate }}</td>
+            <td>{{ patientFile.user.email }}</td>
+            <td>{{ patientFile.phonenumber }}</td>
+            <td><button (click)="setCurrentPatient(patientFile)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Linken aan gebruiker
+            </button></td>
+        </tr>
+        </tbody>
+    </table>
+    <div *ngIf="shownPatientFiles.length === 0">
+        <h1 class="text-center">Er zijn geen patienten die gelinkt moeten worden.</h1>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 *ngIf="currentPatient != null" class="modal-title" id="modalLabel">{{currentPatient.user.firstname.concat(' ', currentPatient.user.lastname)}} Linken</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold">Weet u zeker dat u deze gebruiker aan u wil linken?</p>
+                <p *ngIf="currentPatient !== undefined">{{currentPatient.user.email}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="linkClicked()">Link gebruiker.</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

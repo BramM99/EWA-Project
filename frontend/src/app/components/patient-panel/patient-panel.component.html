@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center h-100" >
+    <div class="information">
+    </div>
+    <div class="container card-container">
+        <div class="row">
+            <div class="title m-3 w-100 text-center">
+                <h1>Welkom bij Praktijk Zonnevelt!</h1>
+                <h4>Bekijk hier uw gegevens of agenda voor toekomstige afspraken.</h4>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-lg-4 col-md-6">
+                <app-patient-panel-appointment-tile routerLink="/calendar"></app-patient-panel-appointment-tile>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <app-patient-panel-info-tile routerLink="/patientpanel"></app-patient-panel-info-tile>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <app-patient-panel-chat-tile></app-patient-panel-chat-tile>
+            </div>
+        </div>
+    </div>
+</div>

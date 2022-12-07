@@ -1,0 +1,95 @@
+<div class="container p-3 mt-5 rounded" style="background: rgba(255, 255, 255, 0.9)">
+    <h1 class="text-center">Patiënt Gegevens</h1>
+    <br>
+    <form *ngIf="currentPatientFile !== undefined" class="form" action="#" method="post" id="registrationForm">
+
+        <div *ngIf="currentPatientFile.user !== null; else noUserAccount">
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="firstname"><h4>Voornaam</h4></label>
+                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Voornaam"
+                           [(ngModel)]="currentPatientFile.user.firstname" [readOnly]="readOnlyBoolean">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="lastname"><h4>Achternaam</h4></label>
+                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Achternaam"
+                           [(ngModel)]="currentPatientFile.user.lastname" [readOnly]="readOnlyBoolean">
+                </div>
+            </div>
+        </div>
+
+        <ng-template #noUserAccount>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="firstname"><h4>Voornaam</h4></label>
+                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Voornaam"
+                           [(ngModel)]="currentPatientFile.tempAccount.firstname" [readOnly]="readOnlyBoolean">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="lastname"><h4>Achternaam</h4></label>
+                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Achternaam"
+                           [(ngModel)]="currentPatientFile.tempAccount.lastname" [readOnly]="readOnlyBoolean">
+                </div>
+            </div>
+
+        </ng-template>
+        <div class="form-group">
+            <div class="col-xs-6">
+                <label for="sex"><h4>Geslacht</h4></label>
+                <input type="text" class="form-control" name="sex" id="sex" placeholder="Geslacht"
+                       [(ngModel)]="currentPatientFile.sex" [readOnly]="readOnlyBoolean">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-6">
+                <label for="birthdate"><h4>Geboortedatum</h4></label>
+                <input type="text" class="form-control" name="birthdate" id="birthdate" placeholder="Geboortedatum"
+                       [(ngModel)]="currentPatientFile.birthdate" [readOnly]="readOnlyBoolean">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-6">
+                <label for="phonenumber"><h4>Telefoonnnummer</h4></label>
+                <input type="text" class="form-control" name="phonenumber" id="phonenumber" placeholder="Telefoonnnummer"
+                       [(ngModel)]="currentPatientFile.phonenumber" [readOnly]="readOnlyBoolean">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-6">
+                <label for="address"><h4>Adres</h4></label>
+                <input type="text" class="form-control" name="address" id="address" placeholder="Adres"
+                       [(ngModel)]="currentPatientFile.address" [readOnly]="readOnlyBoolean">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-6">
+                <label for="allergies"><h4>Allergieën</h4></label>
+                <input type="text" class="form-control" name="allergies" id="allergies" placeholder="Allergieën"
+                       [(ngModel)]="currentPatientFile.allergies" [readOnly]="readOnlyBoolean">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-left">
+                <button *ngIf="readOnlyBoolean" type="button" class="btn btn-info" (click)="editClicked()">Bewerk
+                </button>
+                <button *ngIf="!readOnlyBoolean" type="button" class="btn btn-success" (click)="saveClicked()">Opslaan
+                </button>
+                <button *ngIf="!readOnlyBoolean" type="button" class="btn btn-danger" (click)="cancelClicked()">Annuleren
+                </button>
+            </div>
+            <div class="col-6 text-right">
+                <button *ngIf="readOnlyBoolean" type="button" class="btn btn-danger" (click)="removeClicked()">Verwijderen
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>

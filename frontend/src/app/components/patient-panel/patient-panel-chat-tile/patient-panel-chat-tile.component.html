@@ -1,0 +1,16 @@
+<app-patient-panel-tile *ngIf="room !== undefined" [templateRef]="childTemplate" (click)="routeToChat()"></app-patient-panel-tile>
+
+<ng-template #childTemplate>
+    <div class="text-center">
+        <h1>Chat</h1>
+    </div>
+    <div *ngIf="room !== undefined && room !== null; else noRoom">
+        <h4>Chat hier met uw huisarts!</h4>
+        <h5>Klik hier om naar uw chat te gaan</h5>
+    </div>
+</ng-template>
+<ng-template #noRoom>
+    <div>
+        <h5>Uw account is nog niet gelinkt aan een huisarts...</h5>
+    </div>
+</ng-template>

@@ -1,0 +1,12 @@
+<app-patient-panel-tile [templateRef]="childTemplate"></app-patient-panel-tile>
+
+<ng-template #childTemplate>
+    <div class="text-center">
+        <h1>Gegevens</h1>
+    </div>
+    <div *ngIf="patientFile">
+        <h4>{{getFancyName()}}</h4>
+        <h4>{{getFancyBirthString()}}</h4>
+    </div>
+    <h5>Klik hier om naar uw dossier te gaan</h5>
+</ng-template>

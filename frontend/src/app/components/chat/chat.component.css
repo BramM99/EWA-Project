@@ -1,0 +1,21 @@
+.input-group {
+    padding: 10px 20px;
+    border-top: 1px solid gray;
+    background-color: lightblue;
+    width: 100%;
+}
+
+.input-group > button {
+    margin: 0 0 0 15px;
+}
+.chat-message-box {
+    overflow: scroll;
+    width: 100%;
+    background-color: #EAEAEA;
+    max-height: calc(100vh - 75px);
+}
+
+.chatbox {
+    /*max-height: calc(100vh - 89px);*/
+    max-height: 100%;
+}

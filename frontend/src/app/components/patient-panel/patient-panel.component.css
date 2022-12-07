@@ -1,0 +1,12 @@
+.card-container {
+    background: rgba(255, 255, 242, 0.92);
+    height: max-content;
+    padding: 10px 0;
+    margin: auto 0;
+    border-radius: 5px;
+}
+
+.title {
+    padding: 50px 0;
+}
+

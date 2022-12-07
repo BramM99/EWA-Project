@@ -1,0 +1,12 @@
+.panel-container {
+    background: linear-gradient(
+            rgba(162, 213, 242, 0.45),
+            rgba(162, 213, 242, 0.45)
+    ),
+    url("src/assets/background.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

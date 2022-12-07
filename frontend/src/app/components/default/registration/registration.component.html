@@ -1,0 +1,110 @@
+<div id="register">
+    <div class="container">
+        <h3 class="text-center text-black pt-5">Registreren</h3>
+        <div id="register-row" class="row justify-content-center align-items-center">
+            <div id="register-column" class="col-md-12">
+                <div id="register-box" class="col-md-12">
+                    <form id="register-form" class="form" [formGroup]="signUpForm" (ngSubmit)="register()">
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="fname">Voornaam</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text"
+                                       id="fname"
+                                       name="firstname"
+                                       formControlName="firstname"
+                                       placeholder="Voornaam">
+                            </div>
+                            <span *ngIf="!signUpForm.get('firstname').valid && signUpForm.get('firstname').touched"
+                                  class="help-block">Voornaam moet worden ingevuld</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">Achternaam</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text"
+                                       id="lname"
+                                       name="lastname"
+                                       formControlName="lastname"
+                                       placeholder="Achternaam">
+                            </div>
+                            <span *ngIf="!signUpForm.get('lastname').valid && signUpForm.get('lastname').touched"
+                                  class="help-block">Achternaam moet worden ingevuld</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="dateOfBirth">Geboortedatum</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date"
+                                       id="dateOfBirth"
+                                       name="dateOfBirth"
+                                       formControlName="dateOfBirth">
+                            </div>
+                            <span *ngIf="!signUpForm.get('dateOfBirth').valid && signUpForm.get('dateOfBirth').touched"
+                                  class="help-block">Voer een geldige geboortedatum in</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="zipcode">Postcode</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text"
+                                       id="zipcode"
+                                       name="zipcode"
+                                       formControlName="zipcode"
+                                       placeholder="Postcode">
+                            </div>
+                            <span *ngIf="!signUpForm.get('zipcode').valid && signUpForm.get('zipcode').touched"
+                                  class="help-block">Voer een geldige postcode in</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="emailaddress">Emailadres</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="email"
+                                       id="emailaddress"
+                                       name="emailaddress"
+                                       formControlName="emailaddress"
+                                       placeholder="Emailadres">
+                            </div>
+                            <span *ngIf="!signUpForm.get('emailaddress').valid && signUpForm.get('emailaddress').touched"
+                                  class="help-block">Voer een geldig emailadres in</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="password">Wachtwoord</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="password"
+                                       id="password"
+                                       name="password"
+                                       #passwordInput
+                                       formControlName="password"
+                                       placeholder="Wachtwoord">
+                            </div>
+                            <span *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched"
+                                  class="help-block">Wachtwoord moet worden ingevuld</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-75">
+                                <button type=button class="btn btn-primary" (click)="togglePassword()">Toon
+                                    wachtwoord
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit"
+                                   class="btn-success"
+                                   value="Registeren" [disabled]="!signUpForm.valid">
+                            <input type="button" (click)="clearForm()" value="Leeg" class="btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

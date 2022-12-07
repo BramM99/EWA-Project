@@ -1,0 +1,178 @@
+<body>
+<div id="register">
+    <div class="container">
+        <h3 class="text-center text-black pt-5">Registreren</h3>
+        <div id="register-row" class="row justify-content-center align-items-center">
+            <div id="register-column" class="col-md-6">
+                <div id="register-box" class="col-md-12">
+                    <form id="register-form" class="form container d-flex" action="" method="post"
+                          name="form"
+                          (ngSubmit)="f.form.valid && onSubmit()"
+                          #f="ngForm"
+                          novalidate>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="fname" class="text-info">voornaam:</label>
+                                <input type="text" id="fname"
+                                       class="form-control"
+                                       [(ngModel)]="form.firstname"
+                                       name="firstname"
+                                       required
+                                       #firstname="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && firstname.invalid"
+                                >
+                                    firstname is required!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lname" class="text-info">achternaam:</label>
+                                <input type="text" id="lname"
+                                       class="form-control"
+                                       [(ngModel)]="form.lastname"
+                                       name="lastname"
+                                       required
+                                       #lastname="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && lastname.invalid"
+                                >
+                                    lastname is required!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">wachtwoord:</label>
+                                <input type="text" id="password"
+                                       class="form-control"
+                                       [(ngModel)]="form.password"
+                                       name="password"
+                                       required
+                                       #password="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && password.invalid"
+                                >
+                                    password is required!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipcode" class="text-info">postcode:</label>
+                                <input type="text" id="zipcode"
+                                       class="form-control"
+                                       [(ngModel)]="form.zipcode"
+                                       name="zipcode"
+                                       required
+                                       #zipcode="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && zipcode.invalid"
+                                >
+                                    zipcode is required!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-info">email:</label>
+                                <input type="text" id="email"
+                                       class="form-control"
+                                       [(ngModel)]="form.email"
+                                       name="email"
+                                       required
+                                       #email="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && email.invalid"
+                                >
+                                    email is required!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="speciality" class="text-info">specialiteit:</label>
+                                <input type="text" id="speciality"
+                                       class="form-control"
+                                       [(ngModel)]="form.speciality"
+                                       name="speciality"
+                                       required
+                                       #speciality="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && speciality.invalid"
+                                >
+                                    speciality is required!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="big" class="text-info">big:</label>
+                                <input type="text" id="big"
+                                       class="form-control"
+                                       [(ngModel)]="form.big"
+                                       name="big"
+                                       required
+                                       #big="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && big.invalid"
+                                >
+                                    big is required!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="pnumber" class="text-info">telefoonnummer:</label>
+                                <input type="text" id="pnumber"
+                                       class="form-control"
+                                       [(ngModel)]="form.pnumber"
+                                       name="pnumber"
+                                       required
+                                       #pnumber="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && pnumber.invalid"
+                                >
+                                    telefoonnummer is nodig!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthDate" class="text-info">GeboorteDatum:</label>
+                                <input type="date" id="birthDate"
+                                       class="form-control"
+                                       [(ngModel)]="form.birthDate"
+                                       name="pnumber"
+                                       required
+                                       #birthDate="ngModel">
+                                <div
+                                        class="alert alert-danger"
+                                        role="alert"
+                                        *ngIf="f.submitted && birthDate.invalid"
+                                >
+                                    GeboorteDatum is nodig!
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" (click)="form.role=['ROLE_DOCTOR']">Dokter</button>
+                                <button type="button" (click)="form.role=['ROLE_ADMIN']">Systeem beheerder</button>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+
+                                    <button class="btn btn-primary btn-block">
+                                        Register
+                                    </button>
+                                </div>
+                            </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

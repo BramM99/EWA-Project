@@ -1,0 +1,38 @@
+.message-row {
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.message-box {
+    padding: 5px 10px 5px 10px;
+    float: left;
+}
+
+.message {
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    max-width: 60vw;
+    background-color: white;
+
+    -webkit-box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.75);
+}
+
+.message-info {
+    padding-top: 5px;
+}
+
+.message-info > p {
+    color: dimgray;
+}
+.right {
+    float: right;
+    text-align: right;
+}
+
+.right > .message {
+    background-color: deepskyblue;
+    color: white;
+}

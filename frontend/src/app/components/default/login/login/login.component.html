@@ -1,0 +1,68 @@
+<body>
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form"
+                          name="form"
+                          #f="ngForm"
+                          (ngSubmit)="onSubmit()">
+                        <h3 class="text-center text-info">Login</h3>
+                        <div class="form-group">
+                            <label for="email" class="text-info">Email:</label><br>
+                            <input type="text"
+                                   name="username"
+                                   id="email"
+                                   class="form-control"
+                                   [(ngModel)]="form.email"
+                                   required
+                                   #email="ngModel"/>
+                            <div
+                                    class="alert alert-danger"
+                                    role="alert"
+                                    *ngIf="f.submitted && email.invalid">
+                                email is vereist!
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Wachtwoord:</label><br>
+                            <input type="password"
+                                   name="password"
+                                   id="password"
+                                   class="form-control"
+                                   [(ngModel)]="form.password"
+                                   required
+                                   #password="ngModel">
+                            <div
+                                    class="alert alert-danger"
+                                    role="alert"
+                                    *ngIf="f.submitted && password.invalid">
+                                <div *ngIf="password.errors.required">Wachtwoord is vereist</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block"
+                                    [disabled]="!f.valid">
+                                Login
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <div
+                                    class="alert alert-danger"
+                                    role="alert"
+                                    *ngIf="f.submitted && isLoginFailed">
+                                Login mislukt
+                            </div>
+                            <div id="register-link">
+                                <a class="text-info" routerLink="/register">Registreer</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+

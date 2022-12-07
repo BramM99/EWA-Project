@@ -1,0 +1,69 @@
+<div class="container-fluid p-3 mt-5 rounded" style="background: rgba(255, 255, 255, 0.9)">
+    <h1 class="text-center">Uw Patiënten</h1>
+    <br>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Patiënt Nummer</th>
+            <th scope="col">Naam</th>
+            <th scope="col">Geboortedatum</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Telefoonnummer</th>
+            <th scope="col">Details</th>
+            <th scope="col">Patiënt Chat</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let patientFile of patientFiles">
+            <td>{{ patientFile.id }}</td>
+            <td><p *ngIf="patientFile.user !== null; else noUserName">{{ patientFile.user.firstname.concat(' ', patientFile.user.lastname) }}</p></td>
+            <td>{{ patientFile.birthdate }}</td>
+            <td><p *ngIf="patientFile.user !== null; else noEmail">{{ patientFile.user.email }}</p></td>
+            <td>{{ patientFile.phonenumber }}</td>
+            <td><a [routerLink]="['/patients', patientFile.id]">Details</a></td>
+            <td *ngIf="patientFile.user !== null; else linkUser">
+                <a *ngIf="patientFile.roomId !== undefined; else chatLoading" [routerLink]="['/chat', patientFile.roomId]">Open Chat</a>
+            </td>
+
+
+            <ng-template #noUserName>{{ patientFile.tempAccount.firstname.concat(' ', patientFile.tempAccount.lastname )}}</ng-template>
+            <ng-template #noEmail>{{ patientFile.tempAccount.email }}</ng-template>
+            <ng-template #linkUser>
+                <td>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="openMenuFor(patientFile)">Link gebruiker</button>
+                </td></ng-template>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #chatLoading>
+    <p>Chat laden...</p>
+</ng-template>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Gebruiker linken</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-bold">Aan welk account wilt u deze gebruiken linken?</p>
+                <ul class="list-group" *ngFor="let unLinked of unlinkedUsers">
+                    <li class="list-group-item"
+                        [class.active]="unLinked == selectedUser"
+                        (click)="selectedUser = unLinked">
+                            {{unLinked.firstname.concat(' ', unLinked.lastname)}}
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="linkUsers()">Link gebruiker.</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

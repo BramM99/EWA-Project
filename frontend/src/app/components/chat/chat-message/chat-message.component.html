@@ -1,0 +1,10 @@
+<div class="message-row">
+    <div class="message-box" [class.right]="this.id === this.chatMessage.senderId">
+        <div class="message">
+            <p>{{chatMessage.content}}</p>
+        </div>
+        <div class="message-info">
+            <p>{{beautifiedTime()}}</p>
+        </div>
+    </div>
+</div>
